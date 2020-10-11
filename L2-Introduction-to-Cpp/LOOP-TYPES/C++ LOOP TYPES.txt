@@ -1,0 +1,4 @@
+A loop statement allows us to execute a statement 
+or group of statements multiple times and following
+is the general from of a loop statement in most of 
+the programming languages –
