@@ -24,7 +24,6 @@
  * 
  * An element is accessed by indexing the array name.
  * This is done by placing the index of the element within square brackets after the name of the array
- * 
 */
 
 #include<iostream>

@@ -6,7 +6,7 @@ using std::setw;
 
 int main (void)
 {
-    int num [ 10 ]; // num is an array of 10 integes
+    int num [ 10 ]; // An array of 10 integes
 
     // initialize elements of array num to 0
     for (int i = 0; i < 10; i++)
