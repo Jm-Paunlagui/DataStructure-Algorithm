@@ -29,7 +29,7 @@ int main (void)
         {
             for (int column = 0; column < 4; ++column)
             {
-                cout<< "* testNum[" << container << "][" << row << "][" << column << "] = " 
+                cout<< "testNum[" << container << "][" << row << "][" << column << "] = " 
                     << testNum[container][row][column] << endl;
             }
         }
