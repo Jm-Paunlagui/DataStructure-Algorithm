@@ -1,12 +1,12 @@
 // NESTED SWITCH STATEMENTS
 
 /*
-    You can use one switch statement inside of another switch statements
-
-    It is possible to have a switch as part of the statement sequence of an outer switch.
-     Even if the case constants of the inner and outer switch contain common values, 
-     no conflicts will arise.
- */
+ * You can use one switch statement inside of another switch statements
+ *
+ * It is possible to have a switch as part of the statement sequence of an outer switch.
+ * Even if the case constants of the inner and outer switch contain common values, 
+ * no conflicts will arise.
+*/
 
 #include <iostream>
 
@@ -39,3 +39,11 @@ int main (void)
     cout << "Exact Value of num2 is: " << num2 << endl;
     
 } 
+
+/*
+ *  Output
+ *  This is the outer part
+ *  This is the inner part
+ *  Exact Value of num1 is: 100
+ *  Exact Value of num2 is: 200
+*/

@@ -1,21 +1,21 @@
 // IF ELSE STATEMENT
 
 /*
-    *An if statemnt can be followed bu an optional else statement which
-     executes when the boolean expression is false.
-
-    *If the boolean expression evaluates to true, then the if block of code will be executed, 
-    otherwise else block of code will be executed.
-
-    if ( boolean_expression )
-    {
-
-    }
-    else
-    {
-
-    }
-
+ * An if statemnt can be followed bu an optional else statement which
+ * executes when the boolean expression is false.
+ *
+ * If the boolean expression evaluates to true, then the if block of code will be executed, 
+ * otherwise else block of code will be executed.
+ * 
+ * if ( boolean_expression )
+ *  {
+ *
+ *  }
+ *  else
+ *   {
+ *
+ *  }
+ *
 */
 
 #include<iostream>
@@ -41,7 +41,7 @@ int main (void)
 }
 
 /*
-    Output:
-     num is more than 20
-    The value of num is: 100
+ *   Output:
+ *    num is more than 20
+ *  The value of num is: 100
 */

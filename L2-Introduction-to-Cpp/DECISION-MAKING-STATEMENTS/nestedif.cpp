@@ -1,19 +1,19 @@
 // NESTED IF STATEMENT
 
 /*
-    You can use one if or else statement inside another if or else if statements
-
-    It is always legal to nest if-else statements,
-     which means you can use one if or else if statement inside another if or else if statement(s).
-
-    if ( condition )
-    {
-        if ( condition )
-        {
-             code 
-        }
-        
-    }
+ * You can use one if or else statement inside another if or else if statements
+ *
+ * It is always legal to nest if-else statements,
+ * which means you can use one if or else if statement inside another if or else if statement(s).
+ *
+ *  if ( condition )
+ *   {
+ *      if ( condition )
+ *       {
+ *            code 
+ *       }
+ *       
+ *  }
 */
 
 #include <iostream>
@@ -39,8 +39,8 @@ int main (void)
 } 
 
 /*
-    Output:
-    Value of num1 is: 100 and num2 is: 200
-    Exact Value of num1 is: 100
-    Exact Value of num1 is: 200
+ *  Output:
+ *  Value of num1 is: 100 and num2 is: 200
+ *   Exact Value of num1 is: 100
+ *  Exact Value of num1 is: 200
 */
