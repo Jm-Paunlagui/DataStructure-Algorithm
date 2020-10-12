@@ -1,6 +1,7 @@
 // TWO DIMENSIONAL ARRAY
 
 /*
+ *
  * The simplest form of the multi-dimensional array is the two-dimensional array. 
  * A two-dimensional array is, in essence, a list of one-dimensional arrays. 
  * To declare a two-dimensional integer array of size x,y, you would write something as follows
@@ -39,6 +40,7 @@
  *      row index and column index of the array. For example:
  *              
  *      int val = a[2][3]
+ * 
 */
 
 #include<iostream>
@@ -60,7 +62,7 @@ int main (void)
     for (int first = 0; first < 5; first++)   
         for (int second = 0; second < 2; second++)
         {
-            cout << "* nums [" << first << "] [" << second << "]: ";
+            cout << "nums [" << first << "] [" << second << "]: ";
             cout << nums[first][second] << endl;
         }
     

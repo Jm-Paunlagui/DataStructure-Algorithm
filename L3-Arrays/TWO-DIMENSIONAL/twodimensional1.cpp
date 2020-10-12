@@ -10,10 +10,10 @@ int main (void)
         { 1, 3, 5, 7, 9}
     };
 
-    cout<< marks[0][4] << "\t" << marks[1][4];
+    cout<< marks[0][3] << "\t" << marks[1][4];
 }
 
 /*
  * Output
- * 10      9
+ * 8      9
  */
