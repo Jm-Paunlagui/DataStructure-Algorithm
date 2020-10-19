@@ -11,7 +11,7 @@ import sys
 
 class Window(QMainWindow): 
 
-	# list of numbers 
+	# list of numbers [0,.5,.75,2,5,8,9,10] [1, 2, 3, 4, 5, 6, 7, 8, 9, 10] 
 	number = [0,.5,.75,2,5,8,9,10] 
 
 	def __init__(self): 
@@ -45,7 +45,7 @@ class Window(QMainWindow):
 		# desired value 
 		self.desired = 9
 
-		# step size 
+		# step size 2
 		self.step = 2
 
 		# counter to calculate index 

@@ -23,11 +23,20 @@ void printArray (int arrays[], int num);
 
 int main (void)
 {
-    int arr[] = { 5, 2, 1, 4, 8};
-    int num = sizeof(arr) / sizeof(arr[0]);
-
-    insertionSort(arr, num);
-    printArray(arr, num);
+    int num;
+    cout << "Enter number of elements: ";
+    cin >> num;
+    int arrays[num];
+    cout << "Enter elements: " << endl;
+    for (int i = 0; i < num; i++)
+    {
+        cin >> arrays[i];
+    }
+    cout << "Arrays before sorting: ";
+    printArray( arrays, num);
+    insertionSort ( arrays, num);
+    cout << "Arrays after sorting: ";
+    printArray( arrays, num);
 }
 
 // Function to sort an array using insertion sort

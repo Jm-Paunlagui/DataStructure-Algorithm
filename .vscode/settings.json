@@ -1,5 +1,8 @@
 {
     "files.associations": {
-        "iostream": "cpp"
-    }
+        "iostream": "cpp",
+        "ostream": "cpp"
+    },
+    "python.pythonPath": "c:\\Python39\\pythonw_d.exe",
+    "C_Cpp.errorSquiggles": "Disabled"
 }
