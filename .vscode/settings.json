@@ -1,7 +1,12 @@
 {
     "files.associations": {
         "iostream": "cpp",
-        "ostream": "cpp"
+        "ostream": "cpp",
+        "array": "c",
+        "bitset": "cpp",
+        "chrono": "cpp",
+        "algorithm": "cpp",
+        "random": "cpp"
     },
     "python.pythonPath": "c:\\Python39\\pythonw_d.exe",
     "C_Cpp.errorSquiggles": "Disabled"

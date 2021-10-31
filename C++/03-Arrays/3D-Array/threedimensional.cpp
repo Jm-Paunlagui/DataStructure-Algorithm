@@ -16,7 +16,7 @@ int main (void)
 
     int testNum [2][3][4] = 
     {
-        // [0] 1
+        // [0] 1 num
         {
             // 3 rows and 4 columns                   
             { 1, 2, 3, 4 }, 

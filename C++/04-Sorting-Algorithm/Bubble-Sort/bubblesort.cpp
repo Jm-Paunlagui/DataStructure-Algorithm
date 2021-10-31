@@ -14,6 +14,7 @@ using namespace std;
 void swapping(int &num1, int &num2) // swap the content of num1 and num2
 {
     int temp;
+
     temp = num1;
     num1 = num2;
     num2 = temp;

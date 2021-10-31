@@ -1,0 +1,41 @@
+for (studentIndex = index - 1; studentIndex >= 0; studentIndex--)
+        {
+            if (students[studentIndex].age > tempStudentInsertionSort.age)
+            {
+                students[studentIndex + 1] = students[studentIndex];
+                flag = 1;
+            }
+        }
+        if (flag)
+        {
+            students[studentIndex + 1] = tempStudentInsertionSort;
+        }
+
+
+// Insertion Sort
+// void insertionSort(int item, student students[])
+// {
+//     int index, prevStudentIndex, flag = 0;
+//     for (index = 1; index <= item - 1; index++)
+//     {
+//         tempStudentInsertionSort = students[index];
+//         for (prevStudentIndex = index - 1; prevStudentIndex >= 0; prevStudentIndex--)
+//         {
+//             if (students[prevStudentIndex].age > tempStudentInsertionSort.age)
+//             {
+//                 students[prevStudentIndex + 1] = students[prevStudentIndex];
+//                 flag = 1;
+//             }
+//             else
+//             {
+//                 break;
+//             }
+//         }
+//         if (flag)
+//         {
+//             students[prevStudentIndex + 1] = tempStudentInsertionSort;
+//         }
+//     }
+
+//     display(item, students);
+// }

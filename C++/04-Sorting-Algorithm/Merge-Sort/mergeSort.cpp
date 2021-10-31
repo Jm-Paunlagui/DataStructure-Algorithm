@@ -12,7 +12,7 @@ void merge(int array[], int const left, int const mid, int const right)
 
 	// Create temp arrays
 	auto *leftArray = new int[subArrayOne],
-		*rightArray = new int[subArrayTwo];
+		 *rightArray = new int[subArrayTwo];
 
 	// Copy data to temp arrays leftArray[] and rightArray[]
 	for (auto i = 0; i < subArrayOne; i++)
@@ -20,17 +20,20 @@ void merge(int array[], int const left, int const mid, int const right)
 	for (auto j = 0; j < subArrayTwo; j++)
 		rightArray[j] = array[mid + 1 + j];
 
-	auto indexOfSubArrayOne = 0, // Initial index of first sub-array
-		indexOfSubArrayTwo = 0; // Initial index of second sub-array
+	auto indexOfSubArrayOne = 0,   // Initial index of first sub-array
+		indexOfSubArrayTwo = 0;	   // Initial index of second sub-array
 	int indexOfMergedArray = left; // Initial index of merged array
 
 	// Merge the temp arrays back into array[left..right]
-	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo) {
-		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo]) {
+	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo)
+	{
+		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])
+		{
 			array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
 			indexOfSubArrayOne++;
 		}
-		else {
+		else
+		{
 			array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
 			indexOfSubArrayTwo++;
 		}
@@ -38,14 +41,16 @@ void merge(int array[], int const left, int const mid, int const right)
 	}
 	// Copy the remaining elements of
 	// left[], if there are any
-	while (indexOfSubArrayOne < subArrayOne) {
+	while (indexOfSubArrayOne < subArrayOne)
+	{
 		array[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
 		indexOfSubArrayOne++;
 		indexOfMergedArray++;
 	}
 	// Copy the remaining elements of
 	// right[], if there are any
-	while (indexOfSubArrayTwo < subArrayTwo) {
+	while (indexOfSubArrayTwo < subArrayTwo)
+	{
 		array[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
 		indexOfSubArrayTwo++;
 		indexOfMergedArray++;
@@ -77,7 +82,7 @@ void printArray(int A[], int size)
 // Driver code
 int main()
 {
-	int arr[] = { 12, 11, 13, 5, 6, 7 };
+	int arr[] = {12, 11, 13, 5, 6, 7};
 	auto arr_size = sizeof(arr) / sizeof(arr[0]);
 
 	cout << "Given array is \n";
