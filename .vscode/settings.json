@@ -6,7 +6,8 @@
         "bitset": "cpp",
         "chrono": "cpp",
         "algorithm": "cpp",
-        "random": "cpp"
+        "random": "cpp",
+        "iomanip": "cpp"
     },
     "python.pythonPath": "c:\\Python39\\pythonw_d.exe",
     "C_Cpp.errorSquiggles": "Disabled"

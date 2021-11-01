@@ -1,8 +1,18 @@
-// Responsible for input and output
+/**
+ * 3 CS1
+ * @Author 
+ *      Bueno, Nathanael
+ *      Hinggan, Mutya
+ *      Paunlagui, John Moises
+ *      Tolentino, Charles Justine
+ */
 #include <iostream>
 
 // Responsible for other string libraries
 #include <string.h>
+
+#include <iomanip>
+#include <chrono>
 
 using namespace std;
 
@@ -11,12 +21,17 @@ struct student
 {
     string name;
     int age;
-} students, tempStudentBubbleSort, currentStudentInsertionSort;
+} students,
+    tempStudentBubbleSort,
+    currentStudentInsertionSort,
+    tempStudentMergeSort;
 
 // Function declaration
 void display(int item, student students[]);
 void bubbleSort(int item, student students[]);
 void insertionSort(int item, student students[]);
+void mergeSort(student students[], int const begin, int const end, int item);
+void merge(student students[], int const begin, int const mid, int const end, int item);
 
 // Driver Code
 int main()
@@ -29,13 +44,15 @@ int main()
      *********************************************/
     int items, index, option;
 
+    char again;
+
     // Prompts the user to enter how many elements.
     cout << "Enter the number of students you would like to input? ";
     cin >> items;
     student students[items];
 
     // Getting the names
-    cout << "Please state the name of the students\n";
+    cout << "\nPlease state the name of the students\n";
 
     for (index = 0; index < items; index++)
     {
@@ -44,45 +61,57 @@ int main()
     }
 
     // Getting the Age with their names indicated
-    cout << "Please state the age of the students\n";
+    cout << "\nPlease state the age of the students\n";
 
     for (index = 0; index < items; index++)
     {
-        cout << students[index].name << "'s age is: ";
+        cout << "[" << index + 1 << "] " << students[index].name << "'s age is: ";
         cin >> students[index].age;
     }
+
+    // For Merge Sort
+    auto arr_size = sizeof(students) / sizeof(students[0]);
 
     /************************************************************************
      * Ask the user what type of sorting algorithm they want to use to sort *
      * the age of the students from ascending order.                        *
      ************************************************************************/
-    cout << "\nWhat sorting algorithm do you want to use??\n1 for Bubble sort\n2 for Insertion sort\n3 for Merge sort\n";
-    cin >> option;
-
-    switch (option)
+    do
     {
-    case 1:
-        cout << "Algorithm: Bubble sort\n\nBefore Sorting: \n";
-        display(items, students);
-        printf("\nAfter Sorting: \n");
-        bubbleSort(items, students);
-        break;
-    case 2:
-        cout << "Algorithm: Insertion sort\n\nBefore Sorting: \n";
-        display(items, students);
-        printf("\nAfter Sorting: \n");
-        insertionSort(items, students);
-        break;
-    case 3:
-        cout << "Algorithm: Merge sort\n\nBefore Sorting: \n";
-        display(items, students);
-        printf("\nAfter Sorting: \n");
+        cout << "\nWhat sorting algorithm do you want to use??\n1 for Bubble sort\n2 for Insertion sort\n3 for Merge sort\n";
+        cin >> option;
 
-        break;
-    default:
-        cout << "Invalid Selection!";
-        break;
-    }
+        switch (option)
+        {
+        case 1:
+            cout << "Algorithm: Bubble sort\n\nBefore Sorting: \n";
+            display(items, students);
+            printf("\nAfter Sorting: \n");
+            bubbleSort(items, students);
+            break;
+        case 2:
+            cout << "Algorithm: Insertion sort\n\nBefore Sorting: \n";
+            display(items, students);
+            printf("\nAfter Sorting: \n");
+            insertionSort(items, students);
+            break;
+        case 3:
+            cout << "Algorithm: Merge sort\n\nBefore Sorting: \n";
+            display(items, students);
+            printf("\nAfter Sorting: \n");
+            mergeSort(students, 0, arr_size - 1, items);
+            display(arr_size, students);
+            break;
+        default:
+            cout << "Invalid Selection!";
+            break;
+        }
+
+        //Prompts user to repeat
+        cout << "Do you want to try other sorting algorithm [Y,N]? ";
+        cin >> again;
+    } while (again == 'Y' || again == 'y');
+    cout << "Done.";
 }
 
 /****************************************
@@ -90,10 +119,10 @@ int main()
  ****************************************/
 void display(int item, student students[])
 {
-    cout << "\nNo.   Age  Name\n";
+    cout << "\nNo.\t\tAge\t\tName\n";
     for (auto index = 0; index < item; index++)
     {
-        cout << "[" << index + 1 << "]   " <<students[index].age << "   " << students[index].name << "\n";
+        cout << "[" << index + 1 << "]\t\t" << students[index].age << "\t\t" << students[index].name << endl;
     }
 }
 
@@ -102,6 +131,9 @@ void display(int item, student students[])
  ***************/
 void bubbleSort(int item, student students[])
 {
+    // Gets the start time
+    auto startTime = chrono::steady_clock::now();
+
     int index, studentIndex;
 
     for (index = 0; index < item - 1; index++)
@@ -122,6 +154,15 @@ void bubbleSort(int item, student students[])
         }
     }
     display(item, students);
+
+    // Gets the end time
+    auto endTime = chrono::steady_clock::now();
+
+    // Time difference
+    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
+
+    // Elapsed time
+    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /******************
@@ -129,10 +170,14 @@ void bubbleSort(int item, student students[])
  ******************/
 void insertionSort(int item, student students[])
 {
+    // Gets the start time
+    auto startTime = chrono::steady_clock::now();
+
     int index, prevStudentIndex;
 
     // index is the step to the loop
-    for (index = 1; index < item; index++){
+    for (index = 1; index < item; index++)
+    {
         // Gets the 2nd element and stores it separately in temp
         currentStudentInsertionSort = students[index];
 
@@ -158,12 +203,86 @@ void insertionSort(int item, student students[])
          * at index j + 1 equals current                               *
          ***************************************************************/
         students[prevStudentIndex + 1] = currentStudentInsertionSort;
-        
     }
 
     display(item, students);
+
+    // Gets the end time
+    auto endTime = chrono::steady_clock::now();
+
+    // Time difference
+    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
+
+    // Elapsed time
+    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /**************
  * MERGE SORT *
  **************/
+// Merges two subarrays of students[].
+// First subarray is arr[begin..mid]
+// Second subarray is arr[mid+1..end]
+void merge(student students[], int const begin, int const mid, int const end, int item)
+{
+     // Gets the start time
+    auto startTime = chrono::steady_clock::now();
+    
+    int left_index = begin;
+    int right_index = mid + 1;
+    int combined_index = begin;
+    student tempStudentMergeSort[item];
+
+    while (left_index <= mid && right_index <= end)
+    {
+        if (students[left_index].age <= students[right_index].age)
+        {
+            tempStudentMergeSort[combined_index++] = students[left_index++];
+        }
+        else
+        {
+            tempStudentMergeSort[combined_index++] = students[right_index++];
+        }
+    }
+
+    if (left_index == mid + 1)
+    {
+        while (right_index <= end)
+        {
+            tempStudentMergeSort[combined_index++] = students[right_index++];
+        }
+    }
+    else
+    {
+        while (left_index <= mid)
+        {
+            tempStudentMergeSort[combined_index++] = students[left_index++];
+        }
+    }
+
+    for (int index = begin; index <= end; index++)
+    {
+        students[index] = tempStudentMergeSort[index];
+    }
+
+    // Gets the end time
+    auto endTime = chrono::steady_clock::now();
+
+    // Time difference
+    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
+
+    // Elapsed time
+    cout << "\nElapsed time (s): " << duration / 1e9 <<"s"<< endl;
+}
+
+void mergeSort(student students[], int const begin, int const end, int item)
+{
+
+    if (begin >= end)
+        return; // Returns recursivly
+
+    auto mid = (begin + end) / 2;
+    mergeSort(students, begin, mid, item);
+    mergeSort(students, mid + 1, end, item);
+    merge(students, begin, mid, end, item);
+}

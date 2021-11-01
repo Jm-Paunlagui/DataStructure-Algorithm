@@ -18,8 +18,8 @@ void display(int item, student students[]);
 void swaps(student &obj1, student &obj2);
 void bubbleSort(int item, student students[]);
 void insertionSort(int item, student students[]);
-//void mergeSort(student students[], int low, int high);
-//void merge(student students[], int low, int mid, int high);
+void mergeSort(student students[], int low, int high);
+void merge(student students[], int low, int mid, int high);
 
 int main()
 {
@@ -189,70 +189,70 @@ void insertionSort(int item, student students[])
 // begin is for left index and end is
 // right index of the sub-students
 // of arr to be sorted */
-// void mergeSort(student students[], int const begin, int const end)
-// {
-// 	if (begin >= end)
-// 		return; // Returns recursivly
+void mergeSort(student students[], int const begin, int const end)
+{
+	if (begin >= end)
+		return; // Returns recursivly
 
-// 	auto mid = begin + (end - begin) / 2;
-// 	mergeSort(students, begin, mid);
-// 	mergeSort(students, mid + 1, end);
-// 	merge(students, begin, mid, end);
-// }
+	auto mid = begin + (end - begin) / 2;
+	mergeSort(students, begin, mid);
+	mergeSort(students, mid + 1, end);
+	merge(students, begin, mid, end);
+}
 
-// // Merges two subarrays of students[].
-// // First subarray is arr[begin..mid]
-// // Second subarray is arr[mid+1..end]
-// void merge(student students[], int const left, int const mid, int const right)
-// {
-// 	auto const subArrayOne = mid - left + 1;
-// 	auto const subArrayTwo = right - mid;
+// Merges two subarrays of students[].
+// First subarray is arr[begin..mid]
+// Second subarray is arr[mid+1..end]
+void merge(student students[], int const left, int const mid, int const right)
+{
+	auto const subArrayOne = mid - left + 1;
+	auto const subArrayTwo = right - mid;
 
-// 	// Create temp arrays
-// 	auto *leftArray = new int[subArrayOne],
-// 		 *rightArray = new int[subArrayTwo];
+	// Create temp arrays
+	auto *leftArray = new int[subArrayOne],
+		 *rightArray = new int[subArrayTwo];
 
-// 	// Copy data to temp arrays leftArray[] and rightArray[]
-// 	for (auto i = 0; i < subArrayOne; i++)
-// 		leftArray[i] = students[left + i].age;
-// 	for (auto j = 0; j < subArrayTwo; j++)
-// 		rightArray[j] = students[mid + 1 + j].age;
+	// Copy data to temp arrays leftArray[] and rightArray[]
+	for (auto i = 0; i < subArrayOne; i++)
+		leftArray[i] = students[left + i].age;
+	for (auto j = 0; j < subArrayTwo; j++)
+		rightArray[j] = students[mid + 1 + j].age;
 
-// 	auto indexOfSubArrayOne = 0,   // Initial index of first sub-students
-// 		indexOfSubArrayTwo = 0;	   // Initial index of second sub-students
-// 	int indexOfMergedArray = left; // Initial index of merged students
+	auto indexOfSubArrayOne = 0,   // Initial index of first sub-students
+		indexOfSubArrayTwo = 0;	   // Initial index of second sub-students
+	int indexOfMergedArray = left; // Initial index of merged students
 
-// 	// Merge the temp arrays back into students[left..right]
-// 	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo)
-// 	{
-// 		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])
-// 		{
-// 			students[indexOfMergedArray].age = leftArray[indexOfSubArrayOne];
-// 			indexOfSubArrayOne++;
-// 		}
-// 		else
-// 		{
-// 			students[indexOfMergedArray].age = rightArray[indexOfSubArrayTwo];
-// 			indexOfSubArrayTwo++;
-// 		}
-// 		indexOfMergedArray++;
-// 	}
-// 	// Copy the remaining elements of
-// 	// left[], if there are any
-// 	while (indexOfSubArrayOne < subArrayOne)
-// 	{
-// 		students[indexOfMergedArray].age = leftArray[indexOfSubArrayOne];
-// 		indexOfSubArrayOne++;
-// 		indexOfMergedArray++;
-// 	}
-// 	// Copy the remaining elements of
-// 	// right[], if there are any
-// 	while (indexOfSubArrayTwo < subArrayTwo)
-// 	{
-// 		students[indexOfMergedArray].age = rightArray[indexOfSubArrayTwo];
-// 		indexOfSubArrayTwo++;
-// 		indexOfMergedArray++;
-// 	}
-// }
+	// Merge the temp arrays back into students[left..right]
+	while (indexOfSubArrayOne < subArrayOne && indexOfSubArrayTwo < subArrayTwo)
+	{
+		if (leftArray[indexOfSubArrayOne] <= rightArray[indexOfSubArrayTwo])
+		{
+			students[indexOfMergedArray].age = leftArray[indexOfSubArrayOne];
+			indexOfSubArrayOne++;
+		}
+		else
+		{
+			students[indexOfMergedArray].age = rightArray[indexOfSubArrayTwo];
+			indexOfSubArrayTwo++;
+		}
+		indexOfMergedArray++;
+	}
+	// Copy the remaining elements of
+	// left[], if there are any
+	while (indexOfSubArrayOne < subArrayOne)
+	{
+		students[indexOfMergedArray].age = leftArray[indexOfSubArrayOne];
+		indexOfSubArrayOne++;
+		indexOfMergedArray++;
+	}
+	// Copy the remaining elements of
+	// right[], if there are any
+	while (indexOfSubArrayTwo < subArrayTwo)
+	{
+		students[indexOfMergedArray].age = rightArray[indexOfSubArrayTwo];
+		indexOfSubArrayTwo++;
+		indexOfMergedArray++;
+	}
+}
 
 // End
