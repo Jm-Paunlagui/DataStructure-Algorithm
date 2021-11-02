@@ -12,7 +12,7 @@
 #include <string.h>
 
 #include <iomanip>
-#include <chrono>
+
 
 using namespace std;
 
@@ -131,9 +131,6 @@ void display(int item, student students[])
  ***************/
 void bubbleSort(int item, student students[])
 {
-    // Gets the start time
-    auto startTime = chrono::steady_clock::now();
-
     int index, studentIndex;
 
     for (index = 0; index < item - 1; index++)
@@ -154,15 +151,6 @@ void bubbleSort(int item, student students[])
         }
     }
     display(item, students);
-
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /******************
@@ -170,8 +158,6 @@ void bubbleSort(int item, student students[])
  ******************/
 void insertionSort(int item, student students[])
 {
-    // Gets the start time
-    auto startTime = chrono::steady_clock::now();
 
     int index, prevStudentIndex;
 
@@ -184,11 +170,11 @@ void insertionSort(int item, student students[])
         // Previous index
         prevStudentIndex = index - 1;
 
-        /**************************************************** 
-         * Move elements of arrarys[0..i-1], that are       *
-         * greater than key, to one position ahead of their * 
-         * current position                                 *
-         ****************************************************/
+        /*
+         * Move elements of arrarys[0..i-1], that are       
+         * greater than key, to one position ahead of their
+         * current position                                 
+         */
         while (prevStudentIndex >= 0 && students[prevStudentIndex].age > currentStudentInsertionSort.age)
         {
             students[prevStudentIndex + 1] = students[prevStudentIndex];
@@ -197,24 +183,16 @@ void insertionSort(int item, student students[])
             prevStudentIndex--;
         }
 
-        /*************************************************************** 
-         * After the while loop, all the greater items have been       *
-         * shifted to the right, finally we can store the current item *
-         * at index j + 1 equals current                               *
-         ***************************************************************/
+        /* 
+         * After the while loop, all the greater items have been       
+         * shifted to the right, finally we can store the current item 
+         * at index j + 1 equals current                               
+         */
         students[prevStudentIndex + 1] = currentStudentInsertionSort;
     }
 
     display(item, students);
 
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /**************
@@ -225,8 +203,6 @@ void insertionSort(int item, student students[])
 // Second subarray is arr[mid+1..end]
 void merge(student students[], int const begin, int const mid, int const end, int item)
 {
-     // Gets the start time
-    auto startTime = chrono::steady_clock::now();
     
     int left_index = begin;
     int right_index = mid + 1;
@@ -264,15 +240,6 @@ void merge(student students[], int const begin, int const mid, int const end, in
     {
         students[index] = tempStudentMergeSort[index];
     }
-
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 <<"s"<< endl;
 }
 
 void mergeSort(student students[], int const begin, int const end, int item)

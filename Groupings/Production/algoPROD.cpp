@@ -69,6 +69,9 @@ int main()
         cin >> students[index].age;
     }
 
+
+    //// Create temp arrays
+    student a[n1],b[n2];
     // For Merge Sort
     auto arr_size = sizeof(students) / sizeof(students[0]);
 
@@ -131,8 +134,6 @@ void display(int item, student students[])
  ***************/
 void bubbleSort(int item, student students[])
 {
-    // Gets the start time
-    auto startTime = chrono::steady_clock::now();
 
     int index, studentIndex;
 
@@ -154,15 +155,6 @@ void bubbleSort(int item, student students[])
         }
     }
     display(item, students);
-
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /******************
@@ -170,8 +162,6 @@ void bubbleSort(int item, student students[])
  ******************/
 void insertionSort(int item, student students[])
 {
-    // Gets the start time
-    auto startTime = chrono::steady_clock::now();
 
     int index, prevStudentIndex;
 
@@ -206,15 +196,6 @@ void insertionSort(int item, student students[])
     }
 
     display(item, students);
-
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 /**************
@@ -225,8 +206,6 @@ void insertionSort(int item, student students[])
 // Second subarray is arr[mid+1..end]
 void merge(student students[], int const begin, int const mid, int const end, int item)
 {
-    // Gets the start time
-    auto startTime = chrono::steady_clock::now();
 
     int left_index = begin;
     int right_index = mid + 1;
@@ -264,15 +243,6 @@ void merge(student students[], int const begin, int const mid, int const end, in
     {
         students[index] = tempStudentMergeSort[index];
     }
-
-    // Gets the end time
-    auto endTime = chrono::steady_clock::now();
-
-    // Time difference
-    double duration = double(chrono::duration_cast<chrono::nanoseconds>(endTime - startTime).count());
-
-    // Elapsed time
-    cout << "\nElapsed time (s): " << duration / 1e9 << "s" << endl;
 }
 
 void mergeSort(student students[], int const begin, int const end, int item)
@@ -286,3 +256,5 @@ void mergeSort(student students[], int const begin, int const end, int item)
     mergeSort(students, mid + 1, end, item);
     merge(students, begin, mid, end, item);
 }
+
+// End Line.
