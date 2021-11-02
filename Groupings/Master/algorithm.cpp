@@ -8,11 +8,6 @@
  */
 #include <iostream>
 
-// Responsible for other string libraries
-#include <string.h>
-
-#include <iomanip>
-
 
 using namespace std;
 
@@ -76,42 +71,35 @@ int main()
      * Ask the user what type of sorting algorithm they want to use to sort *
      * the age of the students from ascending order.                        *
      ************************************************************************/
-    do
+
+    cout << "\nWhat sorting algorithm do you want to use??\n1 for Bubble sort\n2 for Insertion sort\n3 for Merge sort\n";
+    cin >> option;
+
+    switch (option)
     {
-        cout << "\nWhat sorting algorithm do you want to use??\n1 for Bubble sort\n2 for Insertion sort\n3 for Merge sort\n";
-        cin >> option;
-
-        switch (option)
-        {
-        case 1:
-            cout << "Algorithm: Bubble sort\n\nBefore Sorting: \n";
-            display(items, students);
-            printf("\nAfter Sorting: \n");
-            bubbleSort(items, students);
-            break;
-        case 2:
-            cout << "Algorithm: Insertion sort\n\nBefore Sorting: \n";
-            display(items, students);
-            printf("\nAfter Sorting: \n");
-            insertionSort(items, students);
-            break;
-        case 3:
-            cout << "Algorithm: Merge sort\n\nBefore Sorting: \n";
-            display(items, students);
-            printf("\nAfter Sorting: \n");
-            mergeSort(students, 0, arr_size - 1, items);
-            display(arr_size, students);
-            break;
-        default:
-            cout << "Invalid Selection!";
-            break;
-        }
-
-        //Prompts user to repeat
-        cout << "Do you want to try other sorting algorithm [Y,N]? ";
-        cin >> again;
-    } while (again == 'Y' || again == 'y');
-    cout << "Done.";
+    case 1:
+        cout << "Algorithm: Bubble sort\n\nBefore Sorting: \n";
+        display(items, students);
+        printf("\nAfter Sorting: \n");
+        bubbleSort(items, students);
+        break;
+    case 2:
+        cout << "Algorithm: Insertion sort\n\nBefore Sorting: \n";
+        display(items, students);
+        printf("\nAfter Sorting: \n");
+        insertionSort(items, students);
+        break;
+    case 3:
+        cout << "Algorithm: Merge sort\n\nBefore Sorting: \n";
+        display(items, students);
+        printf("\nAfter Sorting: \n");
+        mergeSort(students, 0, arr_size - 1, items);
+        display(arr_size, students);
+        break;
+    default:
+        cout << "Invalid Selection!";
+        break;
+    }
 }
 
 /****************************************
@@ -192,7 +180,6 @@ void insertionSort(int item, student students[])
     }
 
     display(item, students);
-
 }
 
 /**************
@@ -203,7 +190,7 @@ void insertionSort(int item, student students[])
 // Second subarray is arr[mid+1..end]
 void merge(student students[], int const begin, int const mid, int const end, int item)
 {
-    
+
     int left_index = begin;
     int right_index = mid + 1;
     int combined_index = begin;

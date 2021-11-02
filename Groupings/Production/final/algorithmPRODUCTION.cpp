@@ -5,6 +5,12 @@
  *      Hinggan, Mutya
  *      Paunlagui, John Moises
  *      Tolentino, Charles Justine
+ * 
+ * Compiler version
+ *      g++.exe (Rev7, Built by MSYS2 project) 10.3.0
+ * 
+ * Text editor
+ *      Visual Studio Code 1.61.2
  */
 #include <iostream>
 #include <limits>
@@ -175,7 +181,7 @@ void algoStep(student students[], int items)
 void bubbleSortStudentsAccordingToAge(student students[], int items)
 {
     int index, compareStundents;
-    //
+    // 
     student temp;
     for (index = 0; index < items; index++)
     {
