@@ -7,7 +7,8 @@
         "chrono": "cpp",
         "algorithm": "cpp",
         "random": "cpp",
-        "iomanip": "cpp"
+        "iomanip": "cpp",
+        "variant": "cpp"
     },
     "python.pythonPath": "c:\\Python39\\pythonw_d.exe",
     "C_Cpp.errorSquiggles": "Disabled"
