@@ -1,19 +1,24 @@
-/*
- * 3 CS1
- * @Author 
- *      Bueno, Nathanael
- *      Hinggan, Mutya
- *      Paunlagui, John Moises
- *      Tolentino, Charles Justine
+/**
+ * @file algorithmPRODUCTION.cpp
+ * @section 3 CS-1
+ * @author Bueno, Nathanael
+ *         Hinggan, Mutya
+ *         Paunlagui, John Moises
+ *         Tolentino, Charles Justine
+ * @brief Compile 3 Sorting Algorithms in one program that 
+ *        gets the name and the age.        
+ *        Compiler version
+ *        - g++.exe (Rev7, Built by MSYS2 project) 10.3.0
+ *        Text editor
+ *        - Visual Studio Code 1.61.2
+ * @version 0.1
+ * @date 2021-11-08
  * 
- * Compiler version
- *      g++.exe (Rev7, Built by MSYS2 project) 10.3.0
- * 
- * Text editor
- *      Visual Studio Code 1.61.2
+ * @copyright Copyright (c) 2021
  */
+
 #include <iostream>
-#include <limits>
+
 using namespace std;
 
 // student Data structure blueprint
@@ -181,7 +186,7 @@ void algoStep(student students[], int items)
 void bubbleSortStudentsAccordingToAge(student students[], int items)
 {
     int index, compareStundents;
-    // 
+    //
     student temp;
     for (index = 0; index < items; index++)
     {
@@ -279,7 +284,7 @@ void mergeStudentsAccordingToAge(student students[], int const left, int const m
             indexOfSubArrayTwo++;
         }
         indexOfMergedArray++;
-        algoStep(students, items);
+        //algoStep(students, items);
     }
     // Copy the remaining elements of
     // left[], if there are any
@@ -288,7 +293,7 @@ void mergeStudentsAccordingToAge(student students[], int const left, int const m
         students[indexOfMergedArray] = leftArray[indexOfSubArrayOne];
         indexOfSubArrayOne++;
         indexOfMergedArray++;
-        algoStep(students, items);
+        //algoStep(students, items);
     }
     // Copy the remaining elements of
     // right[], if there are any
@@ -297,8 +302,9 @@ void mergeStudentsAccordingToAge(student students[], int const left, int const m
         students[indexOfMergedArray] = rightArray[indexOfSubArrayTwo];
         indexOfSubArrayTwo++;
         indexOfMergedArray++;
-        algoStep(students, items);
+        //algoStep(students, items);
     }
+    algoStep(students, items);
 }
 
 // begin is for left index and end is
