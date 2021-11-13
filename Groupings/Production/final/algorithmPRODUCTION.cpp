@@ -5,8 +5,9 @@
  *         Hinggan, Mutya
  *         Paunlagui, John Moises
  *         Tolentino, Charles Justine
- * @brief Compile 3 Sorting Algorithms in one program that 
- *        gets the name and the age.        
+ * @brief 3 Sorting Algorithms (BS, IS, MS) in one 
+ *        program that gets the name and the age of the user
+ *        and sorts it in ascending based on the age.        
  *        Compiler version
  *        - g++.exe (Rev7, Built by MSYS2 project) 10.3.0
  *        Text editor
@@ -190,9 +191,9 @@ void bubbleSortStudentsAccordingToAge(student students[], int items)
     student temp;
     for (index = 0; index < items; index++)
     {
-        algoStep(students, items);
         for (compareStundents = 0; compareStundents < items - index - 1; compareStundents++)
         {
+            algoStep(students, items);
             if (students[compareStundents].getStudentAge() > students[compareStundents + 1].getStudentAge())
             {
                 // Sets temp to students
@@ -228,6 +229,7 @@ void insertionSortStudentsAccordingToAge(student students[], int items)
          * greater than currentStudent, to one position ahead of their
          * currentStudent position                                 
          */
+        algoStep(students, items);
         while (prevStudentIndex >= 0 && students[prevStudentIndex].getStudentAge() > currentStudent.getStudentAge())
         {
             students[prevStudentIndex + 1] = students[prevStudentIndex];
@@ -240,8 +242,8 @@ void insertionSortStudentsAccordingToAge(student students[], int items)
          * at index prevStudentIndex + 1 equals current                               
          */
         students[prevStudentIndex + 1] = currentStudent;
-        algoStep(students, items);
     }
+    algoStep(students, items);
     displayStudent(students, items, 1);
 }
 
