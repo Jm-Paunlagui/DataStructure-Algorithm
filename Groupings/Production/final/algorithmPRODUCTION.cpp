@@ -184,66 +184,99 @@ void algoStep(student students[], int items)
 /***************
  * BUBBLE SORT *
  ***************/
-void bubbleSortStudentsAccordingToAge(student students[], int items)
+void bubbleSortStudentsAccordingToAge(student students[], int items) // 8, *16, 4, 12, 1
 {
     int index, compareStundents;
-    //
+
     student temp;
-    for (index = 0; index < items; index++)
+    for (index = 0; index < items; index++) // 1 < 5;
     {
-        for (compareStundents = 0; compareStundents < items - index - 1; compareStundents++)
+        for (compareStundents = 0; compareStundents < items - index - 1; compareStundents++) // 1 < 4
         {
-            algoStep(students, items);
-            if (students[compareStundents].getStudentAge() > students[compareStundents + 1].getStudentAge())
+            // cout << compareStundents << endl;
+            // cout << items - index - 1 << endl;
+            if (students[compareStundents].getStudentAge() > students[compareStundents + 1].getStudentAge()) // 16 > 4
             {
+                cout << "\n\nSwapping: " << compareStundents << "[" << students[compareStundents].getStudentAge() << "] and " << compareStundents + 1 << "[" << students[compareStundents + 1].getStudentAge() << "]" << endl;
                 // Sets temp to students
-                temp = students[compareStundents];
+                temp = students[compareStundents]; // temp = 16
+                cout << "temp:\t" << temp.getStudentAge() << endl;
+
                 // students is now the value of students + 1
-                students[compareStundents] = students[compareStundents + 1];
+                students[compareStundents] = students[compareStundents + 1]; //  s1[1] ? = s2[2]: 4
+                cout << "place: " << students[compareStundents].getStudentAge() << " to indexed: " << compareStundents << endl;
+
                 // students + 1 will get the value of the temp
-                students[compareStundents + 1] = temp;
+                students[compareStundents + 1] = temp; //  s2[2] ? = temp: 16
+                cout << "place: " << students[compareStundents + 1].getStudentAge() << " to indexed: " << compareStundents + 1 << endl;
+                cout << "Swapped" << endl;
             }
+            algoStep(students, items); // Steps lang
+            cout << "Output" << endl;
         }
     }
 
-    displayStudent(students, items, 1);
+    displayStudent(students, items, 1); // Output = [8-A]   [4-C]   [16-B]  [12-D]  [1-E]
 }
 
 /******************
  * INSERTION SORT *
  ******************/
-void insertionSortStudentsAccordingToAge(student students[], int items)
+void insertionSortStudentsAccordingToAge(student students[], int items) // 8, 16, 4, 12, 1
 {
     int index, prevStudentIndex;
     student currentStudent;
     // index is the step to the loop
-    for (index = 1; index < items; index++)
+    for (index = 1; index < items; index++) // For example 2 < 5 (2nd iteration)
     {
         // Gets the 2nd element and stores it separately in temp
-        currentStudent = students[index];
+        currentStudent = students[index]; // students[3] = 4
         // Previous Index
-        prevStudentIndex = index - 1;
-
+        prevStudentIndex = index - 1; // 2 -1 = 1
+        cout << "\n\nShifting " << prevStudentIndex << "[" << students[prevStudentIndex].getStudentAge() << "] and " << prevStudentIndex + 1 << "[" << students[prevStudentIndex + 1].getStudentAge() << "]" << endl;
+        cout << "Current:\t\t" << currentStudent.getStudentAge() << endl;
+        cout << "prevIndex:\t\t" << prevStudentIndex << endl;
         /*
          * Move elements of students[0..i-1], that are       
          * greater than currentStudent, to one position ahead of their
          * currentStudent position                                 
          */
-        algoStep(students, items);
-        while (prevStudentIndex >= 0 && students[prevStudentIndex].getStudentAge() > currentStudent.getStudentAge())
+        //1st shift  [1]        >=      [16]                                       > [4]
+        //2nd shift  [0]        >=      [8]                                        > [4]
+        while (prevStudentIndex >= 0 && students[prevStudentIndex].getStudentAge() > currentStudent.getStudentAge()) // 2nd shift 0 >= 8 > 4
         {
-            students[prevStudentIndex + 1] = students[prevStudentIndex];
+
+            cout << "prevIndex:\t\t" << prevStudentIndex << endl;
+            cout << "Indexed:\t\t" << students[prevStudentIndex].getStudentAge() << endl;
+            cout << "prevIndex+1:\t\t" << students[prevStudentIndex + 1].getStudentAge() << endl;
+
+            //1st shift [4]                = [16]
+            //2nd shift [16]               = [8]
+            students[prevStudentIndex + 1] = students[prevStudentIndex]; // students[prevStudentIndex + 1]: 8
+
+            cout << "newPrvInd+1:\t\t" << students[prevStudentIndex + 1].getStudentAge() << endl; // 16
+            cout << "place: " << students[prevStudentIndex + 1].getStudentAge() << " to indexed: " << prevStudentIndex << endl;
+
             // Then decrement
+            //1st shift [0]
+            //2nd shift [-1]
             prevStudentIndex--;
+            cout << "prevInner--:\t\t" << prevStudentIndex << endl;
+            cout << "Shifted" << endl;
         }
         /* 
          * After the while loop, all the greater items have been       
          * shifted to the right, finally we can store the current item 
          * at index prevStudentIndex + 1 equals current                               
          */
-        students[prevStudentIndex + 1] = currentStudent;
+        //       [-1]             + 1
+        students[prevStudentIndex + 1] = currentStudent; // 4
+        cout << "place: " << students[prevStudentIndex + 1].getStudentAge() << " to indexed: " << prevStudentIndex + 1 << endl;
+        cout << "Current:\t\t" << students[prevStudentIndex + 1].getStudentAge() << endl;
+        algoStep(students, items);
+        //[4-C]   [8-A]   [16-B]  [12-D]  [1-E]
+        cout << "Output" << endl;
     }
-    algoStep(students, items);
     displayStudent(students, items, 1);
 }
 
