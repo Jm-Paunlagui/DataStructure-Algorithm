@@ -80,7 +80,7 @@ int main()
         cout << "\nPlease state the name of the students\n";
         for (index = 0; index < items; index++)
         {
-            cout << "[" << index + 1 << "] Name: ";
+            cout << "[" << index << "] Name: ";
             cin >> inStudentName;
             students[index].setStudentName(inStudentName);
         }
