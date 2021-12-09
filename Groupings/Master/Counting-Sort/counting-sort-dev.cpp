@@ -95,22 +95,27 @@ void countSort(vector<int> &array)
 
     vector<int> count(range), output(array.size());
 
+    // Store the count of each element
     for (int i = 0; i < array.size(); i++)
     {
         count[array[i] - min]++;
     }
 
+    // Store the cummulative count of each array
     for (int i = 1; i < count.size(); i++)
     {
         count[i] += count[i - 1];
     }
 
+    // Find the index of each element of the original array in count array, and
+    // place the elements in output array
     for (int i = array.size() - 1; i >= 0; i--)
     {
         output[count[array[i] - min] - 1] = array[i];
         count[array[i] - min]--;
     }
 
+    // Copy the sorted elements into original array
     for (int i = 0; i < array.size(); i++)
     {
         array[i] = output[i];
