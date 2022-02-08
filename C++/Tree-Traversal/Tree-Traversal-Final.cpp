@@ -44,7 +44,7 @@ public:
     // Checks if its empty or not
     bool isTreeEmpty()
     {
-        return root == NULL ? false : true;
+        return root == NULL ? false : true; // ternary operator
     }
 
     // Recursive function to insert a node in the tree
