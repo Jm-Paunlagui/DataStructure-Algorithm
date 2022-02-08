@@ -44,12 +44,10 @@ public:
     // Checks if its empty or not
     bool isTreeEmpty()
     {
-        return (root == NULL) ? false : true; // Ternary operator
+        return root == NULL ? false : true;
     }
 
-    // Recursive function to insert a key into a BTT
-    // r for root
-    // newNode for new node
+    // Recursive function to insert a node in the tree
     treeNode *insertNode(treeNode *r, treeNode *newNode)
     {
         // Root
@@ -59,7 +57,7 @@ public:
             return r = newNode;
         }
 
-        // For the subtrees
+        // For the subtrees basically
         if (newNode->value < r->value)
         {
             r->leftNode = insertNode(r->leftNode, newNode);
@@ -76,7 +74,20 @@ public:
         return r;
     }
 
-    // A function to print preOrder traversal of a Binary Tree
+    void print2DTree(TreeNode *r, int space)
+    {
+        if (r == NULL) // Base case  1
+            return;
+        space += SPACE;           // Increase distance between levels   2
+        print2DTree(r->right, space); // Process right child first 3
+        cout << endl;
+        for (int i = SPACE; i < space; i++) // 5
+            cout << " ";                    // 5.1
+        cout << r->value << "\n";           // 6
+        print2DTree(r->left, space);            // Process left child  7
+    }
+
+    // A function to print PreOrder traversal of a Binary Tree
     void printPreOrder(treeNode *r) //(current node, Left, Right)
     {
         if (r == NULL)
@@ -89,7 +100,7 @@ public:
         printPreOrder(r->rightNode);
     }
 
-    // A utility function to print inOrder traversal of a Binary Tree
+    // A function to print InOrder traversal of a Binary Tree
     void printInOrder(treeNode *r) //  (Left, current node, Right)
     {
         if (r == NULL)
@@ -102,7 +113,7 @@ public:
         printInOrder(r->rightNode);
     }
 
-    // A utility function to print postOrder traversal of a Binary Tree
+    // A function to print PostOrder traversal of a Binary Tree
     void printPostOrder(treeNode *r) //(Left, Right, Root)
     {
         if (r == NULL)
@@ -143,6 +154,7 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "\nPre-Order Traversal visits nodes in the following order: ";
+                objt.print2DTree(objt.root, 0);
                 objt.printPreOrder(objt.root);
             }
             else
@@ -155,6 +167,7 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "\nIn-Order Traversal visits nodes in the following order: ";
+                objt.print2DTree(objt.root, 0);
                 objt.printInOrder(objt.root);
             }
             else
@@ -167,6 +180,7 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "\nPost-Order Traversal visits nodes in the following order: ";
+                objt.print2DTree(objt.root, 0);
                 objt.printPostOrder(objt.root);
             }
             else
@@ -179,6 +193,7 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "All Tree-Traversal\n";
+                objt.print2DTree(objt.root, 0);
                 cout << "\nPre-Order Traversal visits nodes in the following order: ";
                 objt.printPreOrder(objt.root);
                 cout << endl;
@@ -194,7 +209,7 @@ int main()
             }
             cout << endl;
             break;
-        case 6: 
+        case 6:
             system("cls");
         default:
             break;
