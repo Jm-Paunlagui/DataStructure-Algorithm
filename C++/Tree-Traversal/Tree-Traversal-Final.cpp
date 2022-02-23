@@ -74,17 +74,17 @@ public:
         return r;
     }
 
-    void print2DTree(TreeNode *r, int space)
+    void print2DTree(treeNode *r, int space)
     {
         if (r == NULL) // Base case  1
             return;
         space += SPACE;           // Increase distance between levels   2
-        print2DTree(r->right, space); // Process right child first 3
+        print2DTree(r->rightNode, space); // Process right child first 3
         cout << endl;
         for (int i = SPACE; i < space; i++) // 5
             cout << " ";                    // 5.1
         cout << r->value << "\n";           // 6
-        print2DTree(r->left, space);            // Process left child  7
+        print2DTree(r->leftNode, space);            // Process left child  7
     }
 
     // A function to print PreOrder traversal of a Binary Tree
