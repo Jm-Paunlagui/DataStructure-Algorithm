@@ -154,8 +154,9 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "\nPre-Order Traversal visits nodes in the following order: ";
-                objt.print2DTree(objt.root, 0);
                 objt.printPreOrder(objt.root);
+                cout << "\n2D Tree\n";
+                objt.print2DTree(objt.root, 0);
             }
             else
             {
@@ -167,8 +168,9 @@ int main()
             if (objt.isTreeEmpty())
             {
                 cout << "\nIn-Order Traversal visits nodes in the following order: ";
-                objt.print2DTree(objt.root, 0);
                 objt.printInOrder(objt.root);
+                cout << "\n2D Tree\n";
+                objt.print2DTree(objt.root, 0);
             }
             else
             {
@@ -179,9 +181,10 @@ int main()
         case 4:
             if (objt.isTreeEmpty())
             {
-                cout << "\nPost-Order Traversal visits nodes in the following order: ";
-                objt.print2DTree(objt.root, 0);
+                cout << "\nPost-Order Traversal visits nodes in the following order: ";                
                 objt.printPostOrder(objt.root);
+                cout << "\n2D Tree\n";
+                objt.print2DTree(objt.root, 0);
             }
             else
             {
@@ -192,8 +195,9 @@ int main()
         case 5:
             if (objt.isTreeEmpty())
             {
-                cout << "All Tree-Traversal\n";
+                cout << "\n2D Tree\n";
                 objt.print2DTree(objt.root, 0);
+                cout << "\nAll Tree-Traversal\n";
                 cout << "\nPre-Order Traversal visits nodes in the following order: ";
                 objt.printPreOrder(objt.root);
                 cout << endl;
