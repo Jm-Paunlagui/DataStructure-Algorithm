@@ -30,11 +30,11 @@ int main(void)
     {
         cout << "\n Options \n";
         cout << "1: Insert into Linked list\n"
-             << "2: Delete from Linked list\n"
-             << "3: Display Linked list\n"
-             << "4: Count Linked list\n"
-             << " Others: Exit()\n"
-             << "Enter your option: ";
+            << "2: Delete from Linked list\n"
+            << "3: Display Linked list\n"
+            << "4: Count Linked list\n"
+            << " Others: Exit()\n"
+            << "Enter your option: ";
         scanf("%d", &option);
         switch (option)
         {

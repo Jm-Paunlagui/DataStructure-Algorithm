@@ -13,7 +13,7 @@
  *      Visual Studio Code 1.61.2
  */
 #include <iostream>
-
+#include <string>
 using namespace std;
 
 // student Data structure blueprint
@@ -72,7 +72,7 @@ int main()
     cin >> items;
 
     // Sets the array of students on how many items
-    student students[items];
+    student *students = new student[items];
 
     do
     {
@@ -170,7 +170,7 @@ void algoStep(student students[], int items)
     for (int j = 0; j < items; j++)
     {
         cout << "[" << students[j].getStudentAge() << "-" << students[j].getStudentName() << "]"
-             << "\t";
+            << "\t";
     }
     cout << endl;
 }
@@ -252,8 +252,10 @@ void mergeStudentsAccordingToAge(student students[], int const left, int const m
     auto const subArrayTwo = right - mid;
 
     // Create temp arrays
-    student leftArray[subArrayOne],
-        rightArray[subArrayTwo];
+    //student leftArray[subArrayOne], rightArray[subArrayTwo];
+    student *leftArray = new student[subArrayOne]; // leftArray
+    student *rightArray = new student[subArrayTwo]; // rightArray 
+    // MSVC v143 pa
 
     // Copy data to temp arrays leftArray[] and rightArray[]
     for (auto i = 0; i < subArrayOne; i++)

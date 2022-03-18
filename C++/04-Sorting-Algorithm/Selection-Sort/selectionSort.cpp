@@ -27,7 +27,7 @@ int main(void)
     int num;
     cout << "Enter number of elements: ";
     cin >> num;
-    int arrays[num];
+    int *arrays = new int[num];
     cout << "Enter elements: " << endl;
     for (int i = 0; i < num; i++)
     {

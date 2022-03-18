@@ -1,5 +1,5 @@
 /* C++ implementation of QuickSort */
-#include <bits/stdc++.h>
+#include <iostream>
 using namespace std;
 
 void swap(int *a, int *b);

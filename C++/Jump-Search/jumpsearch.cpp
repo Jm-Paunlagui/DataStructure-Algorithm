@@ -10,7 +10,8 @@ int main()
    int n, item, loc;
    cout << "\n Enter number of items: ";
    cin >> n;
-   int arr[n]; //creating an array of size n
+   //creating an array of size n
+   int *arr = new int[n];
    cout << "\n Enter items: ";
 
    for (int i = 0; i < n; i++)
