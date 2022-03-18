@@ -30,7 +30,7 @@ int main()
     cin >> items;
 
     // Sets the array of elements on how many items
-    int elements[items];
+    int* elements = new int[items];
 
     do
     {
